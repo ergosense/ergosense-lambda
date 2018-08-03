@@ -1,0 +1,17 @@
+{
+  "name": "ergosense-lambda-events",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git-codecommit.eu-central-1.amazonaws.com/v1/repos/ergosense-lambda-events"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "private": true,
+  "author": "",
+  "license": "ISC"
+}
