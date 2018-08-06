@@ -1,6 +1,6 @@
 const assert = require('assert')
-const KinesisEvent = require('./../src/kinesis-event')
-const Events = require('./../src/events')
+const KinesisEvent = require('./../src/events/kinesis-event')
+const lambda = require('./../src/lambda')
 const fs = require('fs')
 const path = require('path')
 
@@ -13,7 +13,7 @@ describe('kinesis-event', () => {
 
   it('should return KinesisEvent object if event type is "kinesis"', () => {
     const object = { kinesis: { data: Buffer.from("hello").toString("base64") }, myname: 'test' }
-    const parsed = Events.create(object)
+    const parsed = lambda.createEvents(object)
 
     assert(parsed instanceof KinesisEvent)
     assert.deepEqual(parsed.kinesis, object.kinesis)
@@ -21,7 +21,7 @@ describe('kinesis-event', () => {
   });
 
   it('should extract the base64 encoded data', () => {
-    const parsed = Events.create(sample)
+    const parsed = lambda.createEvents(sample)
 
     assert.equal("Hello, this is a test 123.", parsed.data)
   })
