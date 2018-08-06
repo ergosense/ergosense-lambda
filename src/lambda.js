@@ -26,7 +26,7 @@ function lambda (opts, fn) {
   const bulk = fnString.match(/^.*\(\.\.\..+\)/)
 
   return (event, context, callback) => {
-    const events = this.createEvents(event, bulk)
+    const events = lambda.createEvents(event, bulk)
     const promises = []
 
     // Forward call to controller
