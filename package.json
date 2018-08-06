@@ -1,5 +1,5 @@
 {
-  "name": "ergosense-lambda-events",
+  "name": "ergosense-lambda",
   "version": "1.0.0",
   "main": "src/lambda.js",
   "scripts": {
