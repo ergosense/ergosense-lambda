@@ -1,7 +1,7 @@
 {
   "name": "ergosense-lambda-events",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/lambda.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
