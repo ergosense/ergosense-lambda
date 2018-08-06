@@ -34,7 +34,7 @@ function lambda (opts, fn) {
 
     // Run plugins
     plugins.forEach(e => {
-      promise = e(event, promise)
+      promise = e(opts, event, promise)
     })
 
     promise
