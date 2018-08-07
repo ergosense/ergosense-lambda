@@ -30,14 +30,14 @@ function lambda (opts, fn) {
     const promises = []
 
     // Forward call to controller
-    let promise = fn.apply(fn, events)
+    let promise = () => fn.apply(fn, events)
 
     // Run plugins
     plugins.forEach(e => {
       promise = e(opts, event, promise)
     })
 
-    promise
+    promise()
       .then(res => {
         callback(null, res)
       }).

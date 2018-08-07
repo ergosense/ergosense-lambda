@@ -23,6 +23,6 @@ describe('kinesis-event', () => {
   it('should extract the base64 encoded data', () => {
     const parsed = lambda.createEvents(sample)
 
-    assert.equal("Hello, this is a test 123.", parsed.data)
+    assert.equal("SGVsbG8sIHRoaXMgaXMgYSB0ZXN0IDEyMy4=", parsed.data)
   })
 });
