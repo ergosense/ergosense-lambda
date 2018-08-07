@@ -75,6 +75,7 @@ lambda.createEvents = (raw, multiple = false) => {
 
       if (extracted = type.fromRecord(record)) {
         res.push(extracted)
+        break
       }
     }
   })
