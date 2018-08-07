@@ -5,7 +5,7 @@ class KinesisEvent extends Event {
   constructor (record) {
     super(record)
 
-    const raw = (Buffer.from(record.kinesis.data, 'base64')).toString('ascii')
+    const raw = record.kinesis.data
 
     // Parse if it's valid JSON, otherwise attach it to the "data" attribute
     // as a string.
