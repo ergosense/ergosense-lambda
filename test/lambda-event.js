@@ -10,5 +10,5 @@ describe('lambda-event', () => {
     assert(parsed instanceof Event)
     assert.equal(parsed.hello, object.hello)
     assert.equal(parsed.myname, object.myname)
-  });
-});
+  })
+})

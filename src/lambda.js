@@ -8,7 +8,7 @@ const KinesisEvent = require('./events/kinesis-event')
 const types = [
   KinesisEvent,
   Event
-];
+]
 
 /**
  * Lambda plugins
@@ -27,7 +27,6 @@ function lambda (opts, fn) {
 
   return (event, context, callback) => {
     const events = lambda.createEvents(event, bulk)
-    const promises = []
 
     // Forward call to controller
     let promise = () => fn.apply(fn, events)
@@ -40,8 +39,8 @@ function lambda (opts, fn) {
     promise()
       .then(res => {
         callback(null, res)
-      }).
-      catch(err => {
+      })
+      .catch(err => {
         callback(err)
       })
   }
@@ -73,7 +72,7 @@ lambda.createEvents = (raw, multiple = false) => {
     for (key in types) {
       type = types[key]
 
-      if (extracted = type.fromRecord(record)) {
+      if ((extracted = type.fromRecord(record))) {
         res.push(extracted)
         break
       }

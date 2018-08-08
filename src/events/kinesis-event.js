@@ -19,12 +19,11 @@ class KinesisEvent extends Event {
 }
 
 KinesisEvent.fromRecord = (record) => {
-  if (record.kinesis)
-  {
+  if (record.kinesis) {
     return new KinesisEvent(record)
   }
 
-  return false;
+  return false
 }
 
 module.exports = KinesisEvent
