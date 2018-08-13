@@ -33,7 +33,7 @@ function lambda (opts, fn) {
 
     // Run plugins
     plugins.forEach(e => {
-      promise = e(opts, event, promise)
+      promise = e.before(opts, event, promise)
     })
 
     promise()
@@ -42,6 +42,11 @@ function lambda (opts, fn) {
       })
       .catch(err => {
         callback(err)
+      })
+      .then(res => {
+        plugins.forEach(e => {
+          e.after(opts, event, res)
+        })
       })
   }
 }
